@@ -1,17 +1,29 @@
 package com.leahtcodes.plank.views;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Table;
+import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
+import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.leahtcodes.plank.Plank;
 
-public class LoadingScreen implements Screen{
+public class LoadSave implements Screen {
     private Plank parent;
-
     private Stage stage;
-    public LoadingScreen(Plank plank){
-        parent = plank;
-    }
 
+    public LoadSave(Plank plank){
+        parent = plank;
+        stage = new Stage( new ScreenViewport());
+        Gdx.input.setInputProcessor(stage);
+
+        Table table = new Table();
+        table.setFillParent(true);
+        table.setDebug(true);
+        TextureRegionDrawable background = new TextureRegionDrawable( new Texture(Gdx.files.internal("Library 1.png")));
+        table.setBackground(background);
+    }
 
     @Override
     public void show(){

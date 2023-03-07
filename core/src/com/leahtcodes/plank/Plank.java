@@ -4,10 +4,7 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.ScreenUtils;
-import com.leahtcodes.plank.views.EndScreen;
-import com.leahtcodes.plank.views.LoadingScreen;
-import com.leahtcodes.plank.views.MainScreen;
-import com.leahtcodes.plank.views.MenuScreen;
+import com.leahtcodes.plank.views.*;
 
 public class Plank extends Game {
     private LoadingScreen loadingScreen;
@@ -15,6 +12,7 @@ public class Plank extends Game {
     private MainScreen mainScreen;
     private EndScreen endScreen;
 
+    private LoadSave loadSave;
     public void changeScreen(int screen){
         if (screen == 0){
             if(menuScreen == null) menuScreen = new MenuScreen(this);
@@ -25,6 +23,9 @@ public class Plank extends Game {
         }else if(screen == 2){
             if(endScreen == null) endScreen = new EndScreen(this);
             this.setScreen(endScreen);
+        }else if(screen == 3){
+            if(loadSave == null) loadSave = new LoadSave(this);
+            this.setScreen(loadSave);
         }
         System.out.println(screen);
     }
