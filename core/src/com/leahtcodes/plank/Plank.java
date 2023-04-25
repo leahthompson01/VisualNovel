@@ -19,6 +19,7 @@ public class Plank extends Game {
         if (screen == 0){
             if(menuScreen == null) menuScreen = new MenuScreen(this);
             this.setScreen(menuScreen);
+
         }else if( screen == 1){
             if(mainScreen == null) mainScreen = new MainScreen(this);
             this.setScreen(mainScreen);
@@ -27,7 +28,8 @@ public class Plank extends Game {
             this.setScreen(endScreen);
         }else if(screen == 3){
             if(loadSave == null) loadSave = new LoadSave(this);
-            this.setScreen(loadSave);
+            if(traverseMap == null) traverseMap = new TraverseMap();
+            traverseMap;
         }
         System.out.println(screen);
     }
