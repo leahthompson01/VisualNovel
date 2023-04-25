@@ -39,14 +39,12 @@ public class MainScreen implements Screen{
             protected void result(Object object){
 
 
-                boolean value = (Boolean) object;
-                if(value){
-                    if(name.getText().length() < 1){
-                        dlgName.text("INVALID USERNAME LENGTH");
-                    }
-                }
-                System.out.println("result " + object);
-                if(value == true){
+                Boolean value = (Boolean) object;
+
+                if(value && name.getText().length() <1){
+                    Dialog nameDialog  = new Dialog("Invalid username length", skin);
+                    table.add(nameDialog);
+                }else{
                   Dialog nameDialog  = new Dialog("Your Character's name is: " + name.getText(), skin);
                   table.add(nameDialog);
 
