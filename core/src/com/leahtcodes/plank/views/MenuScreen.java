@@ -79,13 +79,6 @@ public class MenuScreen implements Screen{
 
         stage.draw();
 
-
-
-
-
-
-
-
     }
     @Override
     public void show(){

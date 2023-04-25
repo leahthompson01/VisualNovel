@@ -25,6 +25,7 @@ public class TraverseMap {
         importer = new GraphMLImporter();
         graph = new SimpleGraph<>(DefaultEdge.class);
 //        Path path = Path.of("c:\\dev\\licenses\\windows\\readme.txt");
+        //Current path of graphml C:\Users\v\IdeaProjects\VisualNovel4\assets\dialogueNodes.graphml
         String fileName = "dialogueNodes1.graphml";
         File file = new File(fileName);
         try (FileReader fileReader = new FileReader(file)) {
