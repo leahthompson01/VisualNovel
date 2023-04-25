@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.Actor;
+import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
@@ -24,11 +25,13 @@ public class MenuScreen implements Screen{
     private Plank parent;
     private Stage stage;
     private Skin skin;
+    private Image image1;
+    private Texture logo;
     public MenuScreen(Plank plank){
         parent = plank;
         stage = new Stage(new ScreenViewport());
         Gdx.input.setInputProcessor(stage);
-        skin = new Skin(Gdx.files.internal("skin/glassy-ui.json"));
+        skin = new Skin(Gdx.files.internal("dark-hdpi/Holo-dark-hdpi.json"));
         Table table = new Table();
         table.setFillParent(true);
         table.setDebug(true);
@@ -36,6 +39,11 @@ public class MenuScreen implements Screen{
         TextureRegionDrawable background = new TextureRegionDrawable(new TextureRegion(new Texture(Gdx.files.internal("Greenhouse.png"))));
         Image image = new Image(background);
         table.setBackground(background);
+        table.row();
+        logo = new Texture(Gdx.files.internal("pirateLogo.png"));
+        image1 = new Image(logo);
+        image1.setPosition(Gdx.graphics.getWidth() /2 - logo.getWidth()/2, Gdx.graphics.getHeight()/2 - logo.getHeight()/2);
+        stage.addActor(image1);
         table.row();
         TextButton newGame = new TextButton("New Game", skin);
         TextButton exit = new TextButton("Exit Game", skin);
@@ -57,7 +65,7 @@ public class MenuScreen implements Screen{
        exit.addListener(new ChangeListener() {
            @Override
            public void changed(ChangeEvent event, Actor actor) {
-               parent.changeScreen(2);
+               Gdx.app.exit();
            }
        });
 
@@ -95,6 +103,7 @@ public class MenuScreen implements Screen{
     @Override
     public void resize(int width, int height){
         stage.getViewport().update(width, height, true);
+        image1.setPosition(Gdx.graphics.getWidth() /2 - logo.getWidth()/2, Gdx.graphics.getHeight()/2 - logo.getHeight()/2);
     }
     @Override
     public void pause() {

@@ -4,3 +4,10 @@ sourceCompatibility = 1.7
 sourceSets.main.java.srcDirs = [ "src/" ]
 
 eclipse.project.name = appName + "-core"
+
+repositories {
+    maven { url "https://jitpack.io" }
+}
+dependencies {
+    implementation 'org.jgrapht:jgrapht-io:1.5.1'
+}
