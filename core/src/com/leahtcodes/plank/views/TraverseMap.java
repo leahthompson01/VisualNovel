@@ -8,7 +8,7 @@ import org.jgrapht.nio.graphml.GraphMLEventDrivenImporter;
 import org.jgrapht.nio.graphml.GraphMLImporter;
 import org.jgrapht.nio.graphml.GraphMLImporter;
 import org.jgrapht.nio.graphml.GraphMLImporter.*;
-
+import java.io.*;
 import java.io.File;
 import java.io.FileReader;
 import java.nio.file.Path;
@@ -26,10 +26,19 @@ public class TraverseMap {
         graph = new SimpleGraph<>(DefaultEdge.class);
 //        Path path = Path.of("c:\\dev\\licenses\\windows\\readme.txt");
         String fileName = "dialogueNodes1.graphml";
-        File file =
-        java.io.Reader file = new FileReader("dialogueNodes1.graphml");
-//        importer.importGraph(graph, file);
+        File file = new File(fileName);
+        try (FileReader fileReader = new FileReader(file)) {
+            importer.importGraph(graph, fileReader);
+            System.out.println(graph.toString());
+        }
+        catch (IOException | ImportException e) { e.printStackTrace(); }
+
+
+
     }
+//        java.io.Reader file = new FileReader("dialogueNodes1.graphml");
+//        importer.importGraph(graph, file);
+
 
 
 

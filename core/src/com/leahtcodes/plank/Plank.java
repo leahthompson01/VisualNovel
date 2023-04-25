@@ -12,6 +12,8 @@ public class Plank extends Game {
     private MainScreen mainScreen;
     private EndScreen endScreen;
 
+    private TraverseMap traverseMap;
+
     private LoadSave loadSave;
     public void changeScreen(int screen){
         if (screen == 0){

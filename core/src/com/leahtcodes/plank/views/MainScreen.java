@@ -59,6 +59,7 @@ public class MainScreen implements Screen{
                     table2.removeActor(name);
                     dialogLabel.setText("Your name is " + name.getText());
                 }
+
             }
         });
 

@@ -19,7 +19,6 @@ import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.leahtcodes.plank.Plank;
 import org.w3c.dom.Text;
 import sun.awt.www.content.image.png;
-
 public class MenuScreen implements Screen{
 
     private Plank parent;
