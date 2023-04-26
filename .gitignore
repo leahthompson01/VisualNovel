@@ -1,6 +1,9 @@
+//default folders
 .idea/
 build/
 .gradle/
+out/
+
+//default files
 *.iml
 *.iws
-out/

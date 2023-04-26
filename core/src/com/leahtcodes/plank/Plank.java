@@ -1,9 +1,7 @@
 package com.leahtcodes.plank;
 
 import com.badlogic.gdx.Game;
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.utils.ScreenUtils;
+import com.leahtcodes.plank.provider.DialogManager;
 import com.leahtcodes.plank.views.*;
 
 public class Plank extends Game {
@@ -12,9 +10,10 @@ public class Plank extends Game {
     private MainScreen mainScreen;
     private EndScreen endScreen;
 
-    private TraverseMap traverseMap;
+    private TraverseMap traverseMap; //TODO: remove
 
     private LoadSave loadSave;
+    private DialogManager dialogManager;
     public void changeScreen(int screen){
         if (screen == 0){
             if(menuScreen == null) menuScreen = new MenuScreen(this);
@@ -29,7 +28,6 @@ public class Plank extends Game {
         }else if(screen == 3){
             if(loadSave == null) loadSave = new LoadSave(this);
             if(traverseMap == null) traverseMap = new TraverseMap();
-            traverseMap;
         }
         System.out.println(screen);
     }
@@ -39,7 +37,6 @@ public class Plank extends Game {
     public void create(){
         loadingScreen = new LoadingScreen(this);
         setScreen(loadingScreen);
-
+//        dialogManager = new DialogManager();
     }
-
 }
