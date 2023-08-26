@@ -1,64 +1,74 @@
-[
-  {
-    "id" : 1,
-    "dialogue": "I am the dialogue",
-    "next": 69,
-    "responseOptions": [
+{
+"1": {
+  "id": 1,
+  "dialogue": "I am the dialogue",
+  "next": 69,
+  "responseOptions": [
+    { "2":
       {
         "id": 2,
-          "dialogue": "dialogue option 1",
-          "next": 6,
-          "responseOptions": []
-      },
+        "dialogue": "dialogue option 1",
+        "next": 6,
+        "responseOptions": []
+      }
+    },
+    {
+      "3":
       {
         "id": 3,
-          "dialogue": "dialogue option 2",
-          "next": 7,
-          "responseOptions": []
-      },
+        "dialogue": "dialogue option 2",
+        "next": 7,
+        "responseOptions": []
+      }
+    },
+    {
+      "4":
       {
         "id": 4,
-          "dialogue": "dialogue option 3",
-          "next": 8,
-          "responseOptions": []
-
-      },
+        "dialogue": "dialogue option 3",
+        "next": 8,
+        "responseOptions": []
+      }
+    },
+    {
+      "5":
       {
         "id": 5,
-          "dialogue": "dialogue option 4",
-          "next": 9,
-          "responseOptions": []
+        "dialogue": "dialogue option 4",
+        "next": 9,
+        "responseOptions": []
       }
-    ]
-  },
-  {
-  "id": 6,
-    "dialogue": "You picked dialogue option 1",
-    "next": null,
-    "responseOptions": []
-  },
-  {
-    "id" : 7,
-    "dialogue": "You picked dialogue option 2",
-    "next" : 10,
-    "responseOptions": []
-  },
-  {
-    "id" : 8,
-    "dialogue": "You picked dialogue option 3",
-    "next" : null,
-    "responseOptions": []
-  },
-  {
-    "id" : 9,
-    "dialogue": "You picked dialogue option 4",
-    "next" : null,
-    "responseOptions": []
-  },
-  {
-    "id" : 10,
-    "dialogue": "You are at dialogue of id 10",
-    "next" : null,
-    "responseOptions": []
-  }
-]
+    }
+  ]
+},
+  "6": {
+"id": 6,
+"dialogue": "You picked dialogue option 1",
+"next": null,
+"responseOptions": []
+},
+  "7":{
+"id": 7,
+"dialogue": "You picked dialogue option 2",
+"next": 10,
+"responseOptions": []
+},
+  "8":{
+"id": 8,
+"dialogue": "You picked dialogue option 3",
+"next": null,
+"responseOptions": []
+},
+  "9":{
+"id": 9,
+"dialogue": "You picked dialogue option 4",
+"next": null,
+"responseOptions": []
+},
+  "10":{
+"id": 10,
+"dialogue": "You are at dialogue of id 10",
+"next": null,
+"responseOptions": []
+}
+}
