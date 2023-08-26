@@ -1,0 +1,60 @@
+
+//const json = data
+//cons map = new Map()
+//json.forEach(jsonObj => {
+//  map.set(jsonObj.id, jsonObj)
+//})
+//
+//Object.keys(data)
+//
+//map.get(id)
+
+[
+  {
+    "id": 1
+    "dialogue": "I am the dialogue",
+    "next": 2,
+    "responseOptions": [
+      {
+        "2": {
+          "dialogue": "dialogue option 1",
+          "next": 6,
+        }
+      },
+      {
+        "3": {
+          "dialogue": "dialogue option 2",
+          "next": 7
+        }
+      },
+      {
+        "4": {
+          "dialogue": "dialogue option 3",
+          "next": 8
+        }
+      },
+      {
+        "5": {
+          "dialogue": "dialogue option 4",
+          "next": 9
+        }
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "dialogue": "You picked dialogue option 1"
+  },
+  {
+    "id": 7,
+    "dialogue": "You picked dialogue option 2"
+  },
+  {
+    "id": 8,
+    "dialogue": "You picked dialogue option 3"
+  },
+  {
+    "id": 9,
+    "dialogue": "You picked dialogue option 4"
+  }
+]
