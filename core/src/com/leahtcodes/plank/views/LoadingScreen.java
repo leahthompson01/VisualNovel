@@ -1,15 +1,17 @@
 package com.leahtcodes.plank.views;
 
-import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.leahtcodes.plank.Plank;
+import com.leahtcodes.plank.provider.MyScreen;
+import com.leahtcodes.plank.provider.ScreenManager;
 
-public class LoadingScreen implements Screen{
+public class LoadingScreen extends MyScreen{
     private Plank parent;
-
+    private ScreenManager screenManager;
     private Stage stage;
-    public LoadingScreen(Plank plank){
-        parent = plank;
+    public LoadingScreen(Plank game){
+        super(game);
+        parent = game;
     }
 
 
@@ -19,7 +21,7 @@ public class LoadingScreen implements Screen{
     }
     @Override
     public void render(float delta){
-        parent.changeScreen(0);
+//        screenManager.changeScreen("menu");
 
     }
 

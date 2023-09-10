@@ -1,20 +1,22 @@
 package com.leahtcodes.plank.views;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.leahtcodes.plank.Plank;
+import com.leahtcodes.plank.provider.MyScreen;
+import com.leahtcodes.plank.provider.ScreenManager;
 
-public class LoadSave implements Screen {
+public class LoadSave extends MyScreen {
     private Plank parent;
     private Stage stage;
-
-    public LoadSave(Plank plank){
-        parent = plank;
+    private ScreenManager screenManager;
+    public LoadSave(Plank game){
+        super(game);
+        parent = game;
         stage = new Stage( new ScreenViewport());
         Gdx.input.setInputProcessor(stage);
 
@@ -31,7 +33,7 @@ public class LoadSave implements Screen {
     }
     @Override
     public void render(float delta){
-        parent.changeScreen(0);
+//        screenManager.changeScreen("menu");
 
     }
 

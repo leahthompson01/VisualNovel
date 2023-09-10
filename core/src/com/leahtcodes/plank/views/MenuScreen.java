@@ -1,33 +1,35 @@
 package com.leahtcodes.plank.views;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.Actor;
-import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
-import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.leahtcodes.plank.Plank;
-import org.w3c.dom.Text;
-import sun.awt.www.content.image.png;
-public class MenuScreen implements Screen{
+import com.leahtcodes.plank.provider.MyScreen;
+import com.leahtcodes.plank.provider.ScreenManager;
 
+//import sun.awt.www.content.image.png;
+public class MenuScreen extends MyScreen{
     private Plank parent;
+
+    private ScreenManager screenManager;
     private Stage stage;
     private Skin skin;
     private Image image1;
     private Texture logo;
-    public MenuScreen(Plank plank){
-        parent = plank;
+    public MenuScreen(Plank game, ScreenManager screenManagerOG){
+        super(game);
+        screenManager = screenManagerOG;
+        parent = game;
         stage = new Stage(new ScreenViewport());
         Gdx.input.setInputProcessor(stage);
         skin = new Skin(Gdx.files.internal("dark-hdpi/Holo-dark-hdpi.json"));
@@ -53,11 +55,13 @@ public class MenuScreen implements Screen{
         table.add(loadGame).padTop(500).space(10);
         table.add(gallery).padTop(500).space(10);
         table.add(exit).padTop(500).space(10);
-
+//        System.out.println("you are here in menu screen");
        newGame.addListener(new ChangeListener() {
            @Override
            public void changed(ChangeEvent event, Actor actor) {
-               parent.changeScreen(1);
+               table.add(newGame).padTop(500).space(10);
+//               System.out.println(screenManager);
+               screenManager.changeScreen("main");
            }
        });
 
@@ -71,7 +75,7 @@ public class MenuScreen implements Screen{
        loadGame.addListener(new ChangeListener() {
            @Override
            public void changed(ChangeEvent event, Actor actor) {
-               parent.changeScreen(3);
+//               screenManager.changeScreen("loading");
            }
        });
 

@@ -9,28 +9,39 @@ import com.leahtcodes.plank.Plank;
 import java.util.HashMap;
 
 public class ScreenManager implements IScreenManager {
-    private Plank game;
-    private HashMap<String, Screen> screens;
+    public Plank game;
+    private HashMap<String, MyScreen> screens;
     private HashMap<String, Actor> actors;
     private HashMap<String, Music> musics;
 
-    private ScreenManager(Plank game) {
-        this.game = game;
-        screens = new HashMap<String, Screen>();
+    public Screen getCurrentScreen() {
+        return currentScreen;
+    }
+
+    private MyScreen currentScreen;
+
+    public ScreenManager() {
+        screens = new HashMap<String, MyScreen>();
         actors = new HashMap<String, Actor>();
         musics = new HashMap<String, Music>();
-
+        currentScreen = null;
     }
 
-    public static ScreenManager getInstance(Plank game) {
-        if ( instance == null) {
-            instance = new ScreenManager(game);
-        }
-        return instance;
-    }
+
+
+
     @Override
-    public void addScreen(String name, Screen screen) {
-        screens.put(name, screen);
+    public void addScreen(String name, MyScreen screenName) {
+//            System.out.println(currentScreen);
+            if(currentScreen != null){
+                currentScreen.dispose();
+                System.out.println("Screen Disposed");
+            }
+            currentScreen = screenName;
+            System.out.println("this is the current Screen " + currentScreen);
+            currentScreen.getPlank().setScreen(currentScreen);
+            screens.put(name, screenName);
+            currentScreen = null;
 
     }
 
@@ -48,8 +59,26 @@ public class ScreenManager implements IScreenManager {
 
     @Override
     public void changeScreen(String screenName) {
-        game.setScreen(screens.get(screenName));
+        System.out.println("these are the screens" + screens);
+        if( screens.containsKey(screenName)) {
+//            System.out.println(currentScreen);
+            if(currentScreen != null && screens.containsValue(currentScreen)){
+                screens.remove(currentScreen);
+                currentScreen.dispose();
+//                System.out.println("Screen Disposed 2");
+            }
+//            currentScreen = screens.get(screenName);
+            currentScreen = screens.get(screenName);
+//            System.out.println("this is the current Screen " + currentScreen);
 
+            currentScreen.getPlank().setScreen(currentScreen);
+        }
+//            System.out.println(screens.get("main").toString());
+
+//        }
+//        currentScreen = screen;
+//        System.out.println("this is the screenName " + screenName);
+//
     }
 
     @Override
@@ -65,5 +94,8 @@ public class ScreenManager implements IScreenManager {
     @Override
     public void scheduledTask(Timer.Task task, float delay) {
         Timer.schedule(task, delay);
+    }
+    public String toString(){
+        return "";
     }
 }

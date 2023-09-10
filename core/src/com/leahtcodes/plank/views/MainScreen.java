@@ -1,7 +1,6 @@
 package com.leahtcodes.plank.views;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
@@ -12,8 +11,10 @@ import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.leahtcodes.plank.Plank;
+import com.leahtcodes.plank.provider.JSONDialogParser;
+import com.leahtcodes.plank.provider.MyScreen;
 
-public class MainScreen implements Screen{
+public class MainScreen extends MyScreen {
     private Plank parent;
     private Stage stage;
     private Skin skin;
@@ -24,12 +25,18 @@ public class MainScreen implements Screen{
 
     private Label dialogLabel;
 
-    public MainScreen(Plank plank){
-        parent = plank;
+    private JSONDialogParser jsonParser;
+
+    public MainScreen(Plank game){
+        super(game);
+        parent = game;
         stage = new Stage( new ScreenViewport());
         Gdx.input.setInputProcessor(stage);
         skin = new Skin(Gdx.files.internal("dark-hdpi/Holo-dark-hdpi.json"));
+        jsonParser = new JSONDialogParser();
+//        jsonParser.printJSON();
 
+        System.out.println("you are here in MAIN screen");
         Texture dialogBox = new Texture("green-background.png");
         table = new Table();
         table.setFillParent(true);

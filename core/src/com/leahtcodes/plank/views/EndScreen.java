@@ -1,12 +1,12 @@
 package com.leahtcodes.plank.views;
 
-import com.badlogic.gdx.Screen;
 import com.leahtcodes.plank.Plank;
+import com.leahtcodes.plank.provider.MyScreen;
 
-public class EndScreen implements Screen{
+public class EndScreen extends MyScreen {
     private Plank parent;
-    public EndScreen(Plank plank){
-        parent = plank;
+    public EndScreen(Plank game){
+        super(game);
     }
     @Override
     public void show(){
