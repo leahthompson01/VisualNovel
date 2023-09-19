@@ -14,6 +14,7 @@ public class ScreenManager implements IScreenManager {
     private HashMap<String, Actor> actors;
     private HashMap<String, Music> musics;
 
+    private HashMap<String, DialogueText> dialogues;
     public Screen getCurrentScreen() {
         return currentScreen;
     }
@@ -28,7 +29,10 @@ public class ScreenManager implements IScreenManager {
     }
 
 
-
+    @Override
+    public void removeActor(String name, Actor actor) {
+        actors.remove(actor);
+    }
 
     @Override
     public void addScreen(String name, MyScreen screenName) {
@@ -47,7 +51,7 @@ public class ScreenManager implements IScreenManager {
 
     @Override
     public void addActor(String name, Actor actor) {
-        actors.put(name, actor);
+            actors.put(name, actor);
 
     }
 
@@ -80,7 +84,10 @@ public class ScreenManager implements IScreenManager {
 //        System.out.println("this is the screenName " + screenName);
 //
     }
-
+//    @Override
+//    public void addDialogue(DialogueText dialogue){
+//        dialogues.put(dialogue);
+//    };
     @Override
     public Actor getActor(String actorName) {
         return actors.get(actorName);

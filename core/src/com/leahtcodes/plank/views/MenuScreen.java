@@ -31,7 +31,6 @@ public class MenuScreen extends MyScreen{
         screenManager = screenManagerOG;
         parent = game;
         stage = new Stage(new ScreenViewport());
-        Gdx.input.setInputProcessor(stage);
         skin = new Skin(Gdx.files.internal("dark-hdpi/Holo-dark-hdpi.json"));
         Table table = new Table();
         table.setFillParent(true);
@@ -86,7 +85,7 @@ public class MenuScreen extends MyScreen{
     }
     @Override
     public void show(){
-
+        Gdx.input.setInputProcessor(stage);
     }
     @Override
     public void render(float delta){

@@ -50,15 +50,20 @@ public class JSONDialogParser {
 //            System.out.println(currentObj.getString("dialogue"));
 //        }
 //    }
-    public static Map<Integer, Object> JsonFileToPojo() throws IOException {
+//    Map<Integer, JsonDialogueNode> => Map<Integer, JsonDialogueNode>
+
+    public static Map<Integer, JsonDialogueNode> JsonFileToPojo() throws IOException {
         try {
             File file = new File("dialogue.json");
             TypeReference<HashMap<String, JsonDialogueNode>> typeRef = new TypeReference<>() {
-
+//            Think the error in JsonDialogueNode is coming from using a TypeReference for ObjectMapper in Jackson
+                //am ending up with ArrayList of LinkedHashMap
+                //only happening when we get to the responseOptions
+                // that is becoming an ArrayList<LinkedHashMap>
             };
             System.out.println("this is the file" + file);
             ObjectMapper objectMapper = new ObjectMapper();
-            Map<Integer,Object> map = objectMapper.readValue(file,typeRef);
+            Map<Integer,JsonDialogueNode> map = objectMapper.readValue(file,typeRef);
 
             System.out.println(map);
             return map;
